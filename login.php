@@ -13,11 +13,17 @@
       $_SESSION['guesttoken'] = bin2hex(random_bytes(16));
     }
     include "connectdb.php";
+    $qr = $conn->prepare("select siteinfo.companyname as companyname, siteinfo.slogan as slogan, siteinfo.seokeywords as seokeywords, siteinfo.seodescription as seodescription, multimedia.url as logo from siteinfo, multimedia where siteinfo.logo = multimedia.id limit 1;");
+    $qr->execute();
+    $rs_siteinfo = $qr->fetch();
   }
 ?>
 
 <head>
-  <title>Muzik</title>
+  <title><?php echo ($rs_siteinfo['companyname']) . " | " . ($rs_siteinfo['slogan']); ?></title>
+  <link href="<?php echo ($rs_siteinfo['logo']); ?>" type="image/png" rel="shortcut icon" />
+  <meta name="keywords" content="<?php echo ($rs_siteinfo['seokeywords']); ?>" />
+  <meta name="description" content="<?php echo ($rs_siteinfo['seodescription']); ?>" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
@@ -61,7 +67,7 @@
 
 <body data-spy="scroll" data-target=".navbar" data-offset="60">
 	<div id="opacity-screen">
-		<img id="bg-login" src="">
+		<img id="bg-login" src="picture/bg-login.jpg">
     	<input type="text" id="guest-token" value="<?php echo $_SESSION['guesttoken']; ?>" hidden="true"></input>
 	  	<div id="loginbox" class="mainbox center-of-screen col-lg-4 col-lg-offset-0 col-md-6 col-md-offset-0 col-sm-8 col-sm-offset-0 col-xs-12 col-xs-offset-0">
 	    	<div class="panel panel-info">

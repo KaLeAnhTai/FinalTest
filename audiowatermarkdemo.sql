@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.8.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th4 07, 2018 lúc 05:49 PM
--- Phiên bản máy phục vụ: 10.1.28-MariaDB
--- Phiên bản PHP: 7.1.11
+-- Thời gian đã tạo: Th6 10, 2018 lúc 06:53 PM
+-- Phiên bản máy phục vụ: 10.1.32-MariaDB
+-- Phiên bản PHP: 7.2.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,8 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Cơ sở dữ liệu: `audiowatermarkdemo`
 --
-CREATE DATABASE IF NOT EXISTS `audiowatermarkdemo` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-USE `audiowatermarkdemo`;
 
 -- --------------------------------------------------------
 
@@ -45,10 +43,8 @@ CREATE TABLE `multimedia` (
 --
 
 INSERT INTO `multimedia` (`id`, `parentid`, `song`, `singer`, `url`, `type`, `owner`) VALUES
-('1jj3QjAt_lfG4WBbXWwMC1b-pGIwu6l4o', '1jj3QjAt_lfG4WBbXWwMC1b-pGIwu6l4o', 'Life Will Change', 'Shoji Meguro ft. LYn ', 'https://drive.google.com/file/d/1jj3QjAt_lfG4WBbXWwMC1b-pGIwu6l4o/view?usp=sharing', 'music', 'administrator'),
-('1knl17clAh_kNEAo32RR1Jv9G4oUvgx2u', '1knl17clAh_kNEAo32RR1Jv9G4oUvgx2u', 'Vị Thần Gọi Gió', 'Mons ft. TMinx', 'https://drive.google.com/file/d/1knl17clAh_kNEAo32RR1Jv9G4oUvgx2u/view?usp=sharing', 'music', 'administrator'),
-('1pkI2mjODbrIse8fISuaQYmnGza7OrwzN', '1pkI2mjODbrIse8fISuaQYmnGza7OrwzN', 'Cùng Anh', 'Ngọc Doli', 'https://drive.google.com/file/d/1pkI2mjODbrIse8fISuaQYmnGza7OrwzN/view?usp=sharing', 'music', 'administrator'),
-('1zTtrb5Frx-6RihbSBzlIe0kBXQidd4yQ', '1zTtrb5Frx-6RihbSBzlIe0kBXQidd4yQ', 'Túy Âm', 'Masew ft. Nhật Nguyễn ft. Xesi', 'https://drive.google.com/file/d/1zTtrb5Frx-6RihbSBzlIe0kBXQidd4yQ/view?usp=sharing', 'music', 'administrator'),
+('12KJrbJFdwyH-uwlZFSkHUMqjQ0YjCZ1T', '12KJrbJFdwyH-uwlZFSkHUMqjQ0YjCZ1T', 'Dung nhu thoi quen', 'Jaykii ft Sara', 'https://drive.google.com/file/d/12KJrbJFdwyH-uwlZFSkHUMqjQ0YjCZ1T/view?usp=sharing', 'music', 'administrator'),
+('1QzGck7NmYve4qvyyL2kYE0WtKUGCfjer', '1QzGck7NmYve4qvyyL2kYE0WtKUGCfjer', 'Cham day noi dau', 'Erik', 'https://drive.google.com/file/d/1QzGck7NmYve4qvyyL2kYE0WtKUGCfjer/view?usp=sharing', 'music', 'administrator'),
 ('logo', 'logo', NULL, NULL, 'http://localhost/audiowatermarkdemo/picture/logo.png', 'picture', 'administrator');
 
 -- --------------------------------------------------------
@@ -110,7 +106,7 @@ CREATE TABLE `siteinfo` (
 --
 
 INSERT INTO `siteinfo` (`companyname`, `slogan`, `seokeywords`, `seodescription`, `facebook`, `logo`, `copyright`, `copyright_ln2`) VALUES
-('Audio Watermark Demo', 'Vo Xuan Khang _ N14DCAT083 _ PTITHCM', 'audio, watermark, demo', 'Audio Watermark Demo', 'https://www.facebook.com/fvoxuankhang', 'logo', '{companyname} © 2018', 'From Ho Chi Minh city with <span id=\"heart\">❤</span>');
+('WAV Watermark', 'Ka Lê Anh Tài', 'wav, watermark', 'WAV Watermark', '', 'logo', '', '');
 
 -- --------------------------------------------------------
 
@@ -129,7 +125,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `password`, `permission`) VALUES
-('administrator', '01b307acba4f54f55aafc33bb06bbbf6ca803e9a', 'admin');
+('administrator', '01b307acba4f54f55aafc33bb06bbbf6ca803e9a', 'admin'),
+('katai', '01b307acba4f54f55aafc33bb06bbbf6ca803e9a', 'user');
 
 --
 -- Chỉ mục cho các bảng đã đổ
